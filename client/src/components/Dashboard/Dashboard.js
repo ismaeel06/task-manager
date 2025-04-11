@@ -61,7 +61,7 @@ const Dashboard = () => {
   const fetchTasks = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/tasks', {
+      const response = await axios.get('https://task-manager-ev9a.vercel.app/api/tasks', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(response.data);
@@ -74,7 +74,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:5000/api/tasks',
+        'https://task-manager-ev9a.vercel.app/api/tasks',
         task,
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -89,7 +89,7 @@ const Dashboard = () => {
   const handleDeleteTask = async (taskId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/tasks/${taskId}`, {
+      await axios.delete(`https://task-manager-ev9a.vercel.app/api/tasks/${taskId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(tasks.filter(task => task._id !== taskId));
