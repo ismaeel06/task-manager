@@ -103,7 +103,7 @@ const Dashboard = () => {
       const token = localStorage.getItem('token');
       const task = tasks.find(t => t._id === taskId);
       const response = await axios.patch(
-        `http://localhost:5000/api/tasks/${taskId}`,
+        `https://task-manager-ev9a.vercel.app/api/tasks/${taskId}`,
         { completed: !task.completed },
         {
           headers: { Authorization: `Bearer ${token}` },
